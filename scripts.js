@@ -1,20 +1,20 @@
 // Evita el comportamiento por defecto al hacer click. Por ejemplo, si hago click sobre un enlace, este no me llevará a otra página.
 
 
-const links = document.getElementsByTagName("a");
+// // const links = document.getElementsByTagName("a");
 
-function onSubmit(event) {
-  event.preventDefault();
-}
+// function onSubmit(event) {
+//   event.preventDefault();
+// }
 
-for (let i = 0; i < links.length; i++) {
-  links[i].addEventListener('click', onSubmit);
-}
+// for (let i = 0; i < links.length; i++) {
+//   links[i].addEventListener('click', onSubmit);
+// }
 
 
-// Al hacer click sobre un elemento van a ocurrir varias cosas. Todo depende del tipo de elemento:
+// // Al hacer click sobre un elemento van a ocurrir varias cosas. Todo depende del tipo de elemento:
 
-// 2.1 Imágenes: Cambia la imagen por uno de los gif que tienes en la carpeta assets con el nombre magic-*.
+// // 2.1 Imágenes: Cambia la imagen por uno de los gif que tienes en la carpeta assets con el nombre magic-*.
 
 const images = document.getElementsByTagName("img")
 
@@ -29,7 +29,7 @@ for (let i = 0; i < images.length; i++) {
 }
 
 
-// 2.2 Párrafos: Cambia el color del texto y el de fondo por uno cualquiera.
+// // // 2.2 Párrafos: Cambia el color del texto y el de fondo por uno cualquiera.
 
 const changeColors = document.getElementsByTagName("p");
 
@@ -47,7 +47,7 @@ for (let i = 0; i < changeColors.length; i++) {
 
 
 
-// 2.3 Bloques de article o section: Cambia el color de fondo.
+// // // 2.3 Bloques de article o section: Cambia el color de fondo.
 
 const article = document.getElementsByTagName("article")
 for (let i = 0; i < article.length; i++) {
@@ -58,23 +58,25 @@ for (let i = 0; i < article.length; i++) {
 }
 
 
-// Cuando el cursor esté sobre alguno de los siguientes elementos, seguir las instrucciones siguientes, y devolver dicho elemento a su estado original cuando salga el cursor.
+// // Cuando el cursor esté sobre alguno de los siguientes elementos, seguir las instrucciones siguientes, y devolver dicho elemento a su estado original cuando salga el cursor.
 
-// 3.1 Imágenes: Cambia la imagen por el gif abracadabra.gif.
+// // 3.1 Imágenes: Cambia la imagen por el gif abracadabra.gif.
 
 const abraca = document.getElementsByTagName("img");
 for (let i = 0; i < abraca.length; i++) {
+  let oldsrc 
   abraca[i].addEventListener("mouseover", function () {
+    oldsrc = abraca[i].src.substring(34,abraca[i].src.length)
     abraca[i].src = "assets/abracadabra.gif";
   });
   // (CÓMO VOLVER A LA IMAGEN DE ORIGEN????????)
   abraca[i].addEventListener("mouseout", function () {
-    abraca[i].src = "images";
+    abraca[i].src = "index_files/"+oldsrc;
   });
 }
 
 
-// 3.2 Párrafos: Cambia el color del texto y el de fondo por uno cualquiera.
+// // 3.2 Párrafos: Cambia el color del texto y el de fondo por uno cualquiera.
 
 const changeColorAl = document.getElementsByTagName("p");
 for (let i = 0; i < changeColorAl.length; i++) {
@@ -84,19 +86,19 @@ for (let i = 0; i < changeColorAl.length; i++) {
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
 
-    changeColors[i].style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    changeColors[i].style.color = `rgb(${256 - r}, ${256 - g}, ${256 - b})`;
+    changeColorAl[i].style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    changeColorAl[i].style.color = `rgb(${256 - r}, ${256 - g}, ${256 - b})`;
   });
  
   changeColorAl[i].addEventListener("mouseout", function () {
-    changeColors[i].style.backgroundColor = "white";
-    changeColors[i].style.color = "black";
+    changeColorAl[i].style.backgroundColor = "white";
+    changeColorAl[i].style.color = "black";
   });
 }
 
 
 
-// 3.3 Bloques de article o section: Color de fondo distinto al de párrafo.
+// // 3.3 Bloques de article o section: Color de fondo distinto al de párrafo.
 
 const articleCol = document.getElementsByTagName("article")
 for (let i = 0; i < articleCol.length; i++) {
@@ -116,4 +118,4 @@ for (let i = 0; i < articleCol.length; i++) {
   });
 }
 
-// NO HAGO EL PREMIUM PORQUE YA ME VA A EXPLOTAR LA CABEZA :_(
+// // NO HAGO EL PREMIUM PORQUE YA ME VA A EXPLOTAR LA CABEZA :_(
